@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from characters import views
 
+# Ha valaki beír egy egész számot... megkapja a reqest-et--> get, out, delete, stb. 
+# és id-t ---> url adat
+
+
+# urlpatterns --> tömb, amibe benne vannak azok a felületek, amiket elfogad
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # hol érhető el és mit kell lefuttatni
+    # végpontok
+    path('api/player/<int:id>', views.getPlayer),  # kiadja azt a játékost, aminek az id-ja 
 ]
